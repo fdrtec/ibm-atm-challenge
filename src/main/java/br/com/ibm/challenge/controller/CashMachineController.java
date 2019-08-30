@@ -1,5 +1,6 @@
 package br.com.ibm.challenge.controller;
 
+import br.com.ibm.challenge.domain.CashMachine;
 import br.com.ibm.challenge.service.CashMachineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class CashMachineController {
     private CashMachineService cashMachineService;
 
     @GetMapping("extract")
-    public String getExtract(){
+    public CashMachine getExtract(){
         return cashMachineService.getExtract();
     }
 
