@@ -14,9 +14,10 @@ public class CashMachineController {
     @Autowired
     private CashMachineService cashMachineService;
 
-    @GetMapping("extract")
-    public CashMachine getExtract(){
-        return cashMachineService.getExtract();
+    @GetMapping("make-deposit")
+    public String makeDeposit(){
+        String cashMachineSerial = "2019/001";
+        String accountNumber = "5555-444";
+        return cashMachineService.makeDeposit(cashMachineSerial, accountNumber, 500.00);
     }
-
 }

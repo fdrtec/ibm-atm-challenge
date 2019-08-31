@@ -3,36 +3,41 @@ package br.com.ibm.challenge.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Entity
 @Table(name = "cashMachine")
+//@ToString(exclude="id")
+//@EqualsAndHashCode(of="id")
+@Getter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(of="id")
 public class CashMachine {
 
     @Id
     @GeneratedValue
-    @Getter @Setter
     private UUID Id;
 
-    @Getter @Setter
+    private String serialNumber;
+
+    @Setter
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 
-    @Getter @Setter
-    private String stateCash;
+    @Setter
+    private Boolean isOpen;
 
-    @Getter @Setter
+    @Setter
     private Double finalBalance;
 
-    @Getter @Setter
+    @Setter
     private Double openBalance;
+
+//    @ElementCollection
+//    private List transactions;
+
+//    private Map moneyBills;
 }
