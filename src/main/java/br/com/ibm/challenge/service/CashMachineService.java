@@ -27,7 +27,7 @@ public class CashMachineService {
                     .put("valor atualizado do estoque do ATM",cashMachine.getFinalBalance());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return  e.getMessage();
         }
         return response.toString();
     }

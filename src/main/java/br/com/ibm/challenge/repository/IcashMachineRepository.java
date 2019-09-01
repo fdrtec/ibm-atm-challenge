@@ -13,7 +13,9 @@ import java.util.Date;
 @Repository
 public interface IcashMachineRepository {
 
-    static CashMachine findOperationalCash(String serialNumber){
+    static CashMachine findOperationalCash(String serialNumber) throws Exception {
+        //simulação de ausência de dado em um BD
+        if(!serialNumber.equals("2019/001")) throw new Exception("Processo Interrompido: ATM sem autorização");
         return CashMachine
                 .builder()
                 .serialNumber("2019/001")
@@ -24,7 +26,9 @@ public interface IcashMachineRepository {
                 .build();
     }
 
-    static Account findAccountByNumber(String accountNumber){
+    static Account findAccountByNumber(String accountNumber) throws Exception {
+        if(!accountNumber.equals("5555-444")) throw new Exception("Processo Interrompido: conta não encontrada");
+
         return Account.builder()
                 .agency(1234)
                 .number("5555-444")
