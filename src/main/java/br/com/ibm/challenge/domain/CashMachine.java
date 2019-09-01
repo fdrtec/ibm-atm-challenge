@@ -34,7 +34,13 @@ public class CashMachine {
     private Double finalBalance;
 
     @Setter
-    private Double openBalance;
+    private Double initialBalance;
+
+    public Double incrementBalance(Double value){
+        Double balanceReference = getFinalBalance();
+        return balanceReference += value;
+
+    }
 
 //    @ElementCollection
 //    private List transactions;

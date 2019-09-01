@@ -19,7 +19,7 @@ public interface IcashMachineRepository {
                 .serialNumber("2019/001")
                 .date(LocalDate.now())
                 .isOpen(true)
-                .openBalance(500000.00)
+                .initialBalance(500000.00)
                 .finalBalance(500000.00)
                 .build();
     }
@@ -30,7 +30,7 @@ public interface IcashMachineRepository {
                 .number("5555-444")
                 .type(AccountType.CHECKING_ACCOUNT)
                 .userName("Arlindo Nicolau")
-                .balance(50000.00)
+                .balance(29000.00)
                 .build();
     }
 }

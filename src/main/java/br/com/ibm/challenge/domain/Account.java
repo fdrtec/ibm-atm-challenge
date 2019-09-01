@@ -30,4 +30,8 @@ public class Account {
 
     @Setter
     private Double balance;
+
+    public Double incrementBalance(Double depositValue){
+        return balance += depositValue;
+    }
 }
