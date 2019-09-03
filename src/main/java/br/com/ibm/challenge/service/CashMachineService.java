@@ -32,7 +32,24 @@ public class CashMachineService {
     }
 
     public String makeDraw(RequestDto requestDto) {
-        return "teste caminho saque";
+        try{
+            isValidSolicitation(requestDto);
+            if( account.getBalance() < requestDto.getValue()){
+                new Exception("Processo Cancelado: Saldo Insuficiente");
+            };
+            Double balance = account.getBalance();
+            account.setBalance(balance - requestDto.getValue());
+            cashMachine.setFinalBalance(cashMachine.getFinalBalance() - requestDto.getValue());
+
+            response = new JSONObject()
+                    .put("Valor Sacado",requestDto.getValue())
+                    .put("Saldo Inicial da conta", balance)
+                    .put("Saldo Atual da conta", account.getBalance())
+                    .put("Estoque Atual do ATM", cashMachine.getFinalBalance());
+        }catch (Exception e){
+            return  e.getMessage();
+        }
+        return response.toString();
     }
 
     private Boolean isValidSolicitation(RequestDto requestDto) throws Exception {

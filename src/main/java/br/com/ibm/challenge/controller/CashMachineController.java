@@ -17,7 +17,7 @@ public class CashMachineController {
 //    {
 //        "cashMachineSerial": "2019/001",
 //        "accountNumber":"5555-444",
-//        "depositValue": 156.87
+//        "value": 156.87
 //    }
 
     @PostMapping("make-deposit")
