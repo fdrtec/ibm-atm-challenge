@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class DepositRequestDto {
+public class RequestDto {
     private String cashMachineSerial;
     private String accountNumber;
-    private Double depositValue;
+    private Double value;
 }

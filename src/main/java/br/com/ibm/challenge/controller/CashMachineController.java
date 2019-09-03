@@ -1,7 +1,6 @@
 package br.com.ibm.challenge.controller;
 
-import br.com.ibm.challenge.domain.CashMachine;
-import br.com.ibm.challenge.domain.dto.DepositRequestDto;
+import br.com.ibm.challenge.domain.dto.RequestDto;
 import br.com.ibm.challenge.service.CashMachineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,13 @@ public class CashMachineController {
 //    }
 
     @PostMapping("make-deposit")
-    public String makeDeposit(@RequestBody DepositRequestDto depositRequestDto){
-        return cashMachineService.makeDeposit(depositRequestDto);
+    public String makeDeposit(@RequestBody RequestDto requestDto){
+        return cashMachineService.makeDeposit(requestDto);
     }
+
+    @PostMapping("make-draw")
+    public String makeDraw(@RequestBody RequestDto requestDto){
+        return cashMachineService.makeDraw(requestDto);
+    }
+
 }

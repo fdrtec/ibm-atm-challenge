@@ -2,7 +2,7 @@ package br.com.ibm.challenge.service;
 
 import br.com.ibm.challenge.domain.Account;
 import br.com.ibm.challenge.domain.CashMachine;
-import br.com.ibm.challenge.domain.dto.DepositRequestDto;
+import br.com.ibm.challenge.domain.dto.RequestDto;
 import br.com.ibm.challenge.repository.IcashMachineRepository;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -13,13 +13,12 @@ public class CashMachineService {
     private Account account;
     private JSONObject response;
 
-    public String makeDeposit(DepositRequestDto depositRequestDto){
+    public String makeDeposit(RequestDto requestDto){
         try{
-            cashMachine = IcashMachineRepository.findOperationalCash(depositRequestDto.getCashMachineSerial());
-            account = IcashMachineRepository.findAccountByNumber(depositRequestDto.getAccountNumber());
+            isValidSolicitation(requestDto);
             Double inicialBalance = account.getBalance();
-            account.setBalance(account.incrementBalance(depositRequestDto.getDepositValue()));
-            cashMachine.setFinalBalance(cashMachine.incrementBalance(depositRequestDto.getDepositValue()));
+            account.setBalance(account.incrementBalance(requestDto.getValue()));
+            cashMachine.setFinalBalance(cashMachine.incrementBalance(requestDto.getValue()));
 
             response = new JSONObject()
                     .put("Saldo inicial da conta", inicialBalance)
@@ -30,5 +29,15 @@ public class CashMachineService {
             return  e.getMessage();
         }
         return response.toString();
+    }
+
+    public String makeDraw(RequestDto requestDto) {
+        return "teste caminho saque";
+    }
+
+    private Boolean isValidSolicitation(RequestDto requestDto) throws Exception {
+        cashMachine = IcashMachineRepository.findOperationalCash(requestDto.getCashMachineSerial());
+        account = IcashMachineRepository.findAccountByNumber(requestDto.getAccountNumber());
+        return true;
     }
 }
