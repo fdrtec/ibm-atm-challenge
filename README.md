@@ -1,3 +1,18 @@
+#Descrição da Implementação
+
+O desafio tem por principal função saber se o candidato tem habilidades necessários para fazer parte de um time desenvolvimento backend.
+Esta implementação por motivo de tempo não contempla todas solicitações, porém mostra os seguintes conhecimentos do candidato:
+- Estrutura e funcionamento do SpringBoot;
+- Uso do Postman para testar os EndPoints;
+- Uso do Git para versionamento;
+- Uso do Lombook para construção de POJOs;
+- Habilidade na construção de testes unitários com PowerMockito;
+- Uso padrões de projeto na implementação de controller, service e repository.
+- Em virtude de trabalharmos diariamente com banco noSQL (mongoDB), simulamos no repository
+um retorno fake que seria de um banco SQL. Porém as entidades foram criadas automaticamente no 
+banco em memória H2.
+
+
 # IBM ATM Challenge
 
 Você deve criar uma API de Caixa ATM, onde deve ser possível executar operações de saque, depósito, transferência, extrato e produzir um relatório de fechamento, além de operações e controles que forem necessários.

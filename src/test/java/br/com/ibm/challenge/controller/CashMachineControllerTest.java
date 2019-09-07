@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,7 +15,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(CashMachineController.class)
 @PowerMockRunnerDelegate(SpringRunner.class)
 public class CashMachineControllerTest {
 
@@ -33,13 +31,13 @@ public class CashMachineControllerTest {
     }
 
     @Test
-    public void makeDepositMethod() {
+    public void makeDepositMethod_sould_invoke_makeDeposit_of_CashMachineService() {
         ctrl.makeDeposit(requestDto);
         verify(service, times(1)).makeDeposit(requestDto);
     }
 
     @Test
-    public void makeDrawMethod() {
+    public void makeDrawMethodi_nvoke_makeDraw_of_CashMachineService() {
         ctrl.makeDraw(requestDto);
         verify(service, times(1)).makeDraw(requestDto);
     }

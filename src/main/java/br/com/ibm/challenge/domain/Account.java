@@ -2,10 +2,7 @@ package br.com.ibm.challenge.domain;
 
 import br.com.ibm.challenge.domain.Enums.AccountType;
 import br.com.ibm.challenge.domain.Enums.TransactionType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
