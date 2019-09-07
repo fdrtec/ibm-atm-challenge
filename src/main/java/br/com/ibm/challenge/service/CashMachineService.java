@@ -4,7 +4,7 @@ import br.com.ibm.challenge.domain.Account;
 import br.com.ibm.challenge.domain.CashMachine;
 import br.com.ibm.challenge.domain.dto.RequestDto;
 import br.com.ibm.challenge.repository.IcashMachineRepository;
-import org.json.JSONObject;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 @Service

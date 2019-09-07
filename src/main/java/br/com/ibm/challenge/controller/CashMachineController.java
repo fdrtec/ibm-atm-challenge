@@ -12,21 +12,27 @@ public class CashMachineController {
     @Autowired
     private CashMachineService cashMachineService;
 
-//    body para requisição POST no postman
-//    http://localhost:8080/api/make-deposit
-//    {
-//        "cashMachineSerial": "2019/001",
-//        "accountNumber":"5555-444",
-//        "value": 156.87
-//    }
-
+    /**
+     * body para requisição POST no postman
+     * http://localhost:8080/api/make-deposit
+     * {      "cashMachineSerial": "2019/001",
+     * "accountNumber":"5555-444",
+     * "value": 156.87             }
+     */
     @PostMapping("make-deposit")
-    public String makeDeposit(@RequestBody RequestDto requestDto){
+    public String makeDeposit(@RequestBody RequestDto requestDto) {
         return cashMachineService.makeDeposit(requestDto);
     }
 
+    /**
+     * body para requisição POST no postman
+     * http://localhost:8080/api/make-draw
+     * {      "cashMachineSerial": "2019/001",
+     * "accountNumber":"5555-444",
+     * "value": 2156.87             }
+     */
     @PostMapping("make-draw")
-    public String makeDraw(@RequestBody RequestDto requestDto){
+    public String makeDraw(@RequestBody RequestDto requestDto) {
         return cashMachineService.makeDraw(requestDto);
     }
 
